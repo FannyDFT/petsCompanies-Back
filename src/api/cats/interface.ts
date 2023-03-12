@@ -1,31 +1,31 @@
 import { ResponseError, IdParam, DeleteMessage } from "../../types/globalTypes";
 import { ParsedUrlQuery } from "querystring";
-import { Dog } from "@prisma/client";
+import { Cat } from "@prisma/client";
 import { RequestHandler } from "express";
 
-type DogBodyPost = {
+type CatBodyPost = {
   name: string;
   type: string;
   race: string;
   description: string;
   hairType: string;
   origin: string;
-  size: string;
+  behaviour: string;
   imageURL: string;
 };
 
-interface DogController {
-  getAll: RequestHandler<null, Dog[] | ResponseError, null, null>;
-  getOne: RequestHandler<IdParam, Dog | ResponseError, null, null>;
-  create: RequestHandler<null, Dog | ResponseError, DogBodyPost, null>;
-  update: RequestHandler<IdParam, Dog | ResponseError, DogBodyPost, null>;
+interface CatController {
+  getAll: RequestHandler<null, Cat[] | ResponseError, null, null>;
+  getOne: RequestHandler<IdParam, Cat | ResponseError, null, null>;
+  create: RequestHandler<null, Cat | ResponseError, CatBodyPost, null>;
+  update: RequestHandler<IdParam, Cat | ResponseError, CatBodyPost, null>;
   delete: RequestHandler<IdParam, DeleteMessage | ResponseError, null, null>;
   uploadImage: RequestHandler<
     IdParam,
-    Dog | ResponseError,
+    Cat | ResponseError,
     null,
     ParsedUrlQuery
   >;
 }
 
-export default DogController;
+export default CatController;

@@ -4,6 +4,7 @@ import getOne from "./handlers/getOne";
 import update from "./handlers/update";
 import create from "./handlers/create";
 import deleteDog from "./handlers/delete";
+import uploadImage from "./handlers/uploadImage";
 
 const controller: DogController = {
   getAll,
@@ -11,6 +12,7 @@ const controller: DogController = {
   update,
   create,
   delete: deleteDog,
+  uploadImage,
 };
 
 export default controller;

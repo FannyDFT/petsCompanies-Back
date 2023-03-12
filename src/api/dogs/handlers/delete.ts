@@ -9,9 +9,7 @@ const deleteDog: DogController["delete"] = async (req, res) => {
         id,
       },
     });
-    res
-      .status(200)
-      .json({ message: `Book "${dog.name}" deleted successfully` });
+    res.status(200).json({ message: `Dog "${dog.name}" deleted successfully` });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: error });

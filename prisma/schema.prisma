@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -11,23 +8,25 @@ datasource db {
 }
 
 model Dog {
- id          String   @id @unique @default(uuid())
-  name String
-  type String
-  race String
+  id          String @id @unique @default(uuid())
+  name        String
+  type        String
+  race        String
   description String
-  hairType String
-  origin String
-  size String
+  hairType    String
+  origin      String
+  size        String
+  imageURL    String
 }
 
 model Cat {
-  id          String   @id @unique @default(uuid())
-  name String
-  type String
-  race String
+  id          String @id @unique @default(uuid())
+  name        String
+  type        String
+  race        String
   description String
-  hairType String
-  origin String
-  size String
+  hairType    String
+  origin      String
+  behaviour   String
+  imageURL    String
 }

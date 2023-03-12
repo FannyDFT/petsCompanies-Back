@@ -2,7 +2,8 @@ import prisma from "../../../../prisma/clients";
 import DogController from "../interface";
 
 const createDog: DogController["create"] = async (req, res) => {
-  const { name, type, race, description, hairType, origin, size } = req.body;
+  const { name, type, race, description, hairType, origin, size, imageURL } =
+    req.body;
 
   try {
     const newDog = await prisma.dog.create({
@@ -14,6 +15,7 @@ const createDog: DogController["create"] = async (req, res) => {
         hairType,
         origin,
         size,
+        imageURL,
       },
     });
     res.status(200).json(newDog);

@@ -1,13 +1,21 @@
 import prisma from "../../../../prisma/clients";
-import DogController from "../interface";
+import CatController from "../interface";
 
-const updateDog: DogController["update"] = async (req, res) => {
+const updateCat: CatController["update"] = async (req, res) => {
   const { id } = req.params;
-  const { name, type, race, description, hairType, origin, size, imageURL } =
-    req.body;
+  const {
+    name,
+    type,
+    race,
+    description,
+    hairType,
+    origin,
+    imageURL,
+    behaviour,
+  } = req.body;
 
   try {
-    const updatedDog = await prisma.dog.update({
+    const updatedCat = await prisma.cat.update({
       where: {
         id,
       },
@@ -18,15 +26,15 @@ const updateDog: DogController["update"] = async (req, res) => {
         description,
         hairType,
         origin,
-        size,
+        behaviour,
         imageURL,
       },
     });
-    res.status(204).json(updatedDog);
+    res.status(204).json(updatedCat);
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: error });
   }
 };
 
-export default updateDog;
+export default updateCat;
